@@ -9,13 +9,7 @@ document.getElementById('login-btn').addEventListener("click", function() {
     if(contactNumber=="admin"&&digitNumber=="admin123") {
         alert("Login successfully")
         window.location.assign('issue-Tracker.html')
-        
-        // if(window.location.protocol ='http') {
-        //     window.location.assign('issue-Tracker.html')
-        // }
-        //  else {
-        //     window.location.assign('issue-Tracker.html')
-        // }
+
     }
     else {
         alert("Your Information Is Incorrect")
