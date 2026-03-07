@@ -17,41 +17,63 @@
         <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <style>
             header {
                 max-width: 1600px;
                 margin: 0 auto;
             }
+
+            * {
+                font-family: "Geist", sans-serif;
+            }
         </style>
     </head>
 
-    <body>
+    <body class="">
 
-        <header class="pt-[23px] flex justify-between items-center">
-            <div class="flex justify-start items-center gap-1">
-                <img class="w-[36px]" src="assets/github-logo.png" alt="">
-                <h1 class="text-[24px] font-semibold">GitHub Issues Tracker</h1>
-            </div>
-
-            <div class="flex justify-center items-center gap-[20px]">
-                <div>
-
-                    <div class="">
-                        <input  id="mobile" type="search"
-                                class="input  font-light bg-base-200 " placeholder="Search issues..."
-                                value="" />
-                    </div>
-                    
-                    <div class="validator-hint hidden">Enter valid email address</div>
+        <div class="border-b-1">
+            <header class="pt-[23px] pb-[23px]   flex justify-between items-center">
+                <div class="flex justify-start items-center gap-1">
+                    <img class="w-[36px]" src="assets/github-logo.png" alt="">
+                    <h1 class="text-[24px] font-semibold">GitHub Issues Tracker</h1>
                 </div>
-                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
-            </div>
 
-        </header>
+                <div class="flex justify-center items-center gap-[20px]">
+                    <div>
+
+                        <div class="">
+                            <input id="mobile" type="search" class="input  font-light bg-base-100 "
+                                placeholder="Search issues..." value="" />
+                        </div>
+
+                        <div class="validator-hint hidden">Enter valid email address</div>
+                    </div>
+                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
+                </div>
+
+            </header>
+        </div>
+        <section class="pt-[60px] bg-base-200  ">
+            <div class="tab-section max-w-[1110px] mx-auto flex gap-2 bg-base-100 p-[24px] rounded-[10px] shadow-lg ">
+                <button id="AllBtn" onclick="toggleStyle('AllBtn')"
+                    class="btn btn-primary w-[120px] border-1 border-gray-200 shadow-none ">All</button>
+                <button id="openBtn" onclick="toggleStyle('openBtn')" class="btn w-[120px] ">Open</button>
+                <button id="closeBtn" onclick="toggleStyle('closeBtn')" class="btn w-[120px] ">Closed</button>
+            </div>
+        </section>
 
         
+
+        <section class="bg-base-200">
+            <div class="">
+
+            </div>
+        </section>
+
         <script src="script.js"></script>
     </body>
 
