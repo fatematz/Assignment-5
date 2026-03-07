@@ -43,7 +43,10 @@ const filterIssues=(status) => {
 }
 
 const displayIssue=(issues) => {
-    console.log( issues )
+    // console.log( issues )
+
+    document.getElementById("issue-count").innerText = `${issues.length} Issues`;
+
     const getId=document.getElementById("issue-container")
     getId.innerHTML="";
 
