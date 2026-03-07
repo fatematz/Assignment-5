@@ -28,6 +28,20 @@ const LoadIssues=() => {
     })
 }
 
+
+const filterIssues=(status) => {
+    const btnId=status==='all'? 'AllBtn':status==='open'? 'openBtn':'closeBtn';
+
+    toggleStyle(btnId);
+
+    if(status==='all') {
+        displayIssue(allIssues);
+    } else {
+        const filterd=allIssues.filter(issue => issue.status===status);
+        displayIssue(filterd)
+    }
+}
+
 const displayIssue=(issues) => {
     console.log( issues )
     const getId=document.getElementById("issue-container")
