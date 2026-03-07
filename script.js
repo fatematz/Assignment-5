@@ -49,10 +49,13 @@ const displayIssue = (issues) => {
     const getId = document.getElementById('issue-container')
     getId.innerHTML = ''
 
-    for (let issue of issues) {
+    for(let issue of issues) {
+        
+        const borderClass = issue.status === 'open' ? 'border-[#00A96E]' : 'border-[#A855F7]';
+
         const addElement = document.createElement('div')
         addElement.innerHTML = `
-             <div class=" shadow-[0px_0px_15px_rgba(0,0,0,0.2)] py-[20px] px-[10px] space-y-3 h-[417px] rounded-xl">
+             <div class=" shadow-[0px_0px_15px_rgba(0,0,0,0.2)] py-[20px] px-[10px] space-y-3 h-[417px] rounded-xl  border-t-4 ${borderClass}">
              <div class="">
              <button onclick="cardDetail(${issue.id})" class="w-[70px] h-[30px] rounded-full bg-red-200 text-red-700   ml-[190px] hover:bg-gray-500 hover:text-white hover:border-none">${issue.priority}</button>
              </div>
@@ -66,7 +69,7 @@ const displayIssue = (issues) => {
             <button class="w-[120px] h-[30px] rounded-full bg-red-200 text-red-700 border border-red-500 hover:bg-blue-500 hover:text-white hover:border-none">${issue.labels[0]}</button>
             <button class="w-[120px] h-[30px] rounded-full bg-[#eed77b] text-red-700 border border-[#cfa90e] hover:bg-blue-500 hover:text-white hover:border-none">${issue.labels[1]}</button>
         </div>
-       
+      
         <div class="">
             <p class="text-[20px]">${issue.author}</p>
             <p class="text-[20px]">${issue.createdAt}</p>
@@ -125,7 +128,7 @@ const displayCard = (cardView) => {
                         <div class="flex gap-[50px]">
                             <div class="">
                                 <p class="text-[#94A3B8] text-sm font-medium ">Assignee:</p>
-                                <p class="text-[#1E293B] text-xl font-bold ">${cardView.author}</p>
+                                <p class="text-[#1E293B] text-xl font-bold ">${cardView.assignee}</p>
                             </div>
 
                             <div class="">
@@ -139,7 +142,6 @@ const displayCard = (cardView) => {
                     </div>
     
     `
-
     document.getElementById('my_modal_5').showModal()
 }
 
