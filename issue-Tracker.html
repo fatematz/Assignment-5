@@ -68,35 +68,90 @@
 
         <section class="  bg-base-200 py-[16px]">
             <div class=" issues-summary max-w-[1300px] mx-auto bg-base-100 p-[24px] rounded-t-lg ">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-1">
-                    <div class=""><img src="assets/Aperture.png" alt="">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-1">
+                        <div class=""><img src="assets/Aperture.png" alt="">
+                        </div>
+                        <div class="">
+                            <h2 id="issue-count" class="text-[20px] font-semibold">0 Issues</h2>
+                            <h3 class="text-[##64748B]">Track and manage your project issues</h3>
+                        </div>
                     </div>
-                    <div class="">
-                        <h2 id="issue-count" class="text-[20px] font-semibold">0 Issues</h2>
-                        <h3 class="text-[##64748B]">Track and manage your project issues</h3>
-                    </div>
-                </div>
 
-                <div class="flex items-center gap-2">
-                    <div class="w-[20px] h-[20px] bg-[#00A96E] rounded-full"></div>
-                    <div class="">Open</div>
-                     <div class="w-[20px] h-[20px] bg-[#A855F7] rounded-full"></div>
-                    <div class="">Closed</div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-[20px] h-[20px] bg-[#00A96E] rounded-full"></div>
+                        <div class="">Open</div>
+                        <div class="w-[20px] h-[20px] bg-[#A855F7] rounded-full"></div>
+                        <div class="">Closed</div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
 
         <section class="bg-base-200">
-            <div id="issue-container" class=" bg-base-100 max-w-[1300px] mx-auto p-[24px] grid  sm:grid-cols-4 grid-cols-1 gap-[13px] ">
-                
+            <div id="issue-container"
+                class=" bg-base-100 max-w-[1300px] mx-auto p-[24px] grid  sm:grid-cols-4 grid-cols-1 gap-[13px] ">
+
             </div>
         </section>
 
+
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+
+                <div id="details-card" class="">
+                    <div class="">
+                        <div class="">
+                            <h1 class="text-[32px] font-bold text-[#1E293B] leading-tight">Fix broken image uploads</h1>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="bg-[#10B981] text-white px-4 py-1 rounded-full text-sm font-semibold">Opened</span>
+                            <div class="flex items-center gap-2 text-[#64748B] text-md">
+                                <span>•</span>
+                                <p>Opened by <span class="font-medium">Fahim Ahmed</span></p>
+                                <span>•</span>
+                                <p>22/02/2026</p>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <button
+                                class="w-[120px] h-[30px] rounded-full bg-red-200 text-red-700 border border-red-500 hover:bg-blue-500 hover:text-white hover:border-none">ggg</button>
+                            <button
+                                class="w-[120px] h-[30px] rounded-full bg-[#eed77b] text-red-700 border border-[#cfa90e] hover:bg-blue-500 hover:text-white hover:border-none">ggg</button>
+                        </div>
+
+                        <div class="">
+                            <div class="">
+                                <p class="text-[#94A3B8] text-sm font-medium ">Assignee:</p>
+                                <p class="text-[#1E293B] text-xl font-bold ">Fahim Ahmed</p>
+                            </div>
+
+                            <div class="">
+                                <p class="text-[#94A3B8] text-sm font-medium  ">Priority:</p>
+                                <span
+                                    class="inline-block bg-[#EF4444] text-white px-5 py-1 rounded-full text-sm font-extrabold shadow-sm">HIGH</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+
         <script src="script.js"></script>
 
-<div class=""></div>
+
 
 
     </body>
