@@ -185,4 +185,8 @@ document.getElementById("btn-search").addEventListener('click', () => {
 })
 
 
-
+document.getElementById("input-search").addEventListener('input', (event) => {
+    if (event.target.value.trim() === "") {
+        LoadIssues(); 
+    }
+});
