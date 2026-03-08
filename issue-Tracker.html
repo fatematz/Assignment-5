@@ -37,7 +37,7 @@
 
         <div class="sticky top-0">
         <div class="border-b-1  ">
-            <header class="pt-[23px] pb-[23px]   flex justify-between items-center bg-white ">
+            <header class="pt-[23px] pb-[23px]   flex flex-col md:flex-row justify-between items-center gap-[20px] bg-white ">
                 <div class="flex justify-start items-center gap-1">
                     <img class="w-[36px]" src="assets/github-logo.png" alt="">
                     <h1 class="text-[24px] font-semibold">GitHub Issues Tracker</h1>
@@ -53,7 +53,7 @@
 
                         <div class="validator-hint hidden">Enter valid email address</div>
                     </div>
-                    <button id="btn-search" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    <button id="btn-search" class="btn btn-primary w-auto min-w-[80px] md:w-[120px] text-xs"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
                 </div>
 
             </header>
@@ -61,9 +61,9 @@
         <section class="pt-[60px] bg-base-200 mt-[0px]  ">
             <div class="tab-section max-w-[1300px] mx-auto flex  gap-2 bg-base-100 p-[24px] rounded-[10px] shadow-lg ">
                 <button id="AllBtn" onclick="filterIssues('all')"
-                    class="btn btn-primary w-[120px] border-1 border-gray-200 shadow-none ">All</button>
-                <button id="openBtn" onclick="filterIssues('open')" class="btn w-[120px] ">Open</button>
-                <button id="closeBtn" onclick="filterIssues('closed')" class="btn w-[120px] ">Closed</button>
+                    class="btn btn-primary w-auto min-w-[80px] md:w-[120px] text-xs border-1 border-gray-200 shadow-none ">All</button>
+                <button id="openBtn" onclick="filterIssues('open')" class="btn w-auto min-w-[80px] md:w-[120px] text-xs ">Open</button>
+                <button id="closeBtn" onclick="filterIssues('closed')" class="btn w-auto min-w-[80px] md:w-[120px] text-xs ">Closed</button>
             </div>
         </section>
 
