@@ -16,11 +16,11 @@ function toggleStyle(id) {
     selected.classList.add('bg-blue-700', 'text-white')
 }
 
-let allIssues=[]
+let allIssues = []
 
-const loadingSpinner = document.getElementById("loadingSpinner")
+const loadingSpinner = document.getElementById('loadingSpinner')
 
-const LoadIssues=() => {
+const LoadIssues = () => {
     loadingSpinner.classList.remove('hidden')
     loadingSpinner.classList.add('flex')
 
@@ -47,12 +47,8 @@ const filterIssues = (status) => {
     }
 }
 
-
-
 const displayIssue = (issues) => {
     // console.log( issues )
-   
-    
 
     document.getElementById('issue-count').innerText = `${issues.length} Issues`
 
@@ -61,13 +57,24 @@ const displayIssue = (issues) => {
 
     for(let issue of issues) {
         
-        const borderClass = issue.status === 'open' ? 'border-[#00A96E]' : 'border-[#A855F7]';
+        const statusIcon = issue.status === 'open' 
+        ? 'assets/Open-Status.png' 
+        : 'assets/Closed- Status .png'; 
+
+        const borderClass =
+            issue.status==='open'? 'border-[#00A96E]':'border-[#A855F7]'
+        
 
         const addElement = document.createElement('div')
         addElement.innerHTML = `
-             <div class=" shadow-[0px_0px_15px_rgba(0,0,0,0.2)] py-[20px] px-[10px] space-y-3 h-[417px] rounded-xl  border-t-4 ${borderClass}">
-             <div class="">
-             <button onclick="cardDetail(${issue.id})" class="w-[70px] h-[30px] rounded-full bg-red-200 text-red-700   ml-[190px] hover:bg-gray-500 hover:text-white hover:border-none">${issue.priority}</button>
+             <div class=" shadow-[0px_0px_15px_rgba(0,0,0,0.2)] py-[20px] px-[10px] space-y-3 h-[417px] rounded-xl      border-t-4 ${borderClass}">
+             <div class=" flex justify-between items-center">
+                    <div class=" ">
+                    <img src="${statusIcon}" alt="${issue.status}" class="w-6 h-6">
+                    </div>
+                    <div class="">
+                  <button onclick="cardDetail(${issue.id})" class="w-[70px] h-[30px] rounded-full bg-red-200 text-red-700  hover:bg-gray-500 hover:text-white hover:border-none">${issue.priority}</button>
+                 </div>
              </div>
              <div class="">
            <h2 class="text-[20px] font-bold">${issue.title}</h2>
@@ -163,30 +170,31 @@ const displayCard = (cardView) => {
 
 LoadIssues()
 
-
-document.getElementById("btn-search").addEventListener('click', () => {
-    const input=document.getElementById("input-search");
-    const searchValue=input.value.trim().toLowerCase();
+document.getElementById('btn-search').addEventListener('click', () => {
+    const input = document.getElementById('input-search')
+    const searchValue = input.value.trim().toLowerCase()
     console.log(searchValue)
-    
 
-    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
-        .then(Response => Response.json())
-        .then(json => {
+    fetch(
+        `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
+    )
+        .then((Response) => Response.json())
+        .then((json) => {
             // console.log(json)
-            
-            const allCards=json.data;
-           
+
+            const allCards = json.data
+
             // console.log(allCards)
-            const filterCards=allCards.filter(card => card.title.toLowerCase().includes(searchValue));
+            const filterCards = allCards.filter((card) =>
+                card.title.toLowerCase().includes(searchValue),
+            )
             displayIssue(filterCards)
-            console.log( filterCards )
+            console.log(filterCards)
         })
 })
 
-
-document.getElementById("input-search").addEventListener('input', (event) => {
-    if (event.target.value.trim() === "") {
-        LoadIssues(); 
+document.getElementById('input-search').addEventListener('input', (event) => {
+    if (event.target.value.trim() === '') {
+        LoadIssues()
     }
-});
+})
