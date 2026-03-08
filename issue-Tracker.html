@@ -33,10 +33,11 @@
         </style>
     </head>
 
-    <body class="">
+    <body class="bg-base-200">
 
-        <div class="border-b-1">
-            <header class="pt-[23px] pb-[23px]   flex justify-between items-center">
+        <div class="sticky top-0">
+        <div class="border-b-1  ">
+            <header class="pt-[23px] pb-[23px]   flex justify-between items-center bg-white ">
                 <div class="flex justify-start items-center gap-1">
                     <img class="w-[36px]" src="assets/github-logo.png" alt="">
                     <h1 class="text-[24px] font-semibold">GitHub Issues Tracker</h1>
@@ -46,19 +47,19 @@
                     <div>
 
                         <div class="">
-                            <input id="mobile" type="search" class="input  font-light bg-base-100 "
+                            <input id="input-search" type="text" class="input  font-light bg-base-100 "
                                 placeholder="Search issues..." value="" />
                         </div>
 
                         <div class="validator-hint hidden">Enter valid email address</div>
                     </div>
-                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
+                    <button id="btn-search" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
                 </div>
 
             </header>
         </div>
-        <section class="pt-[60px] bg-base-200  ">
-            <div class="tab-section max-w-[1300px] mx-auto flex gap-2 bg-base-100 p-[24px] rounded-[10px] shadow-lg ">
+        <section class="pt-[60px] bg-base-200 mt-[0px]  ">
+            <div class="tab-section max-w-[1300px] mx-auto flex  gap-2 bg-base-100 p-[24px] rounded-[10px] shadow-lg ">
                 <button id="AllBtn" onclick="filterIssues('all')"
                     class="btn btn-primary w-[120px] border-1 border-gray-200 shadow-none ">All</button>
                 <button id="openBtn" onclick="filterIssues('open')" class="btn w-[120px] ">Open</button>
@@ -88,11 +89,18 @@
             </div>
         </section>
 
-        <section class="bg-base-200">
+        </div>
+
+        <section class="bg-base-200 min-h-screen ">
             <div id="issue-container"
-                class=" bg-base-100 max-w-[1300px] mx-auto p-[24px] grid  sm:grid-cols-4 grid-cols-1 gap-[13px] ">
+                class=" bg-base-100 max-w-[1300px]  mx-auto p-[24px] grid  sm:grid-cols-4 grid-cols-1 gap-[13px] ">
 
             </div>
+
+             <div id="loadingSpinner" class=" hidden h-[60vh]  flex-col justify-center items-center">
+            <span class="loading loading-spinner loading-xl"></span>
+            </div>
+
         </section>
 
 

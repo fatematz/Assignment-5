@@ -16,14 +16,20 @@ function toggleStyle(id) {
     selected.classList.add('bg-blue-700', 'text-white')
 }
 
-let allIssues = []
+let allIssues=[]
 
-const LoadIssues = () => {
+const loadingSpinner = document.getElementById("loadingSpinner")
+
+const LoadIssues=() => {
+    loadingSpinner.classList.remove('hidden')
+    loadingSpinner.classList.add('flex')
+
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
         .then((Response) => Response.json())
         .then((json) => {
             allIssues = json.data
             displayIssue(json.data)
+            loadingSpinner.classList.add('hidden')
         })
 }
 
@@ -41,8 +47,12 @@ const filterIssues = (status) => {
     }
 }
 
+
+
 const displayIssue = (issues) => {
     // console.log( issues )
+   
+    
 
     document.getElementById('issue-count').innerText = `${issues.length} Issues`
 
@@ -65,11 +75,17 @@ const displayIssue = (issues) => {
            <div class="">
         <h3 class="text-[18px] text-[##64748B]" >${issue.description}</h3>
         </div>
-        <div class="border-b-1 flex gap-[20px] py-[20px]">
+        <div class="flex gap-[20px] py-[20px]">
             <button class="w-[120px] h-[30px] rounded-full bg-red-200 text-red-700 border border-red-500 hover:bg-blue-500 hover:text-white hover:border-none">${issue.labels[0]}</button>
             <button class="w-[120px] h-[30px] rounded-full bg-[#eed77b] text-red-700 border border-[#cfa90e] hover:bg-blue-500 hover:text-white hover:border-none">${issue.labels[1]}</button>
+
+            
         </div>
-      
+
+
+      <hr class=" border-gray-300  -mx-2">
+
+
         <div class="">
             <p class="text-[20px]">${issue.author}</p>
             <p class="text-[20px]">${issue.createdAt}</p>
@@ -146,3 +162,32 @@ const displayCard = (cardView) => {
 }
 
 LoadIssues()
+
+
+document.getElementById("btn-search").addEventListener('click', () => {
+    const input=document.getElementById("input-search");
+    const searchValue=input.value.trim().toLowerCase();
+    console.log(searchValue)
+    
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+        .then(Response => Response.json())
+        .then(json => {
+            // console.log(json)
+            
+            const allCards=json.data;
+           
+            // console.log(allCards)
+            const filterCards=allCards.filter(card => card.title.toLowerCase().includes(searchValue));
+            displayIssue(filterCards)
+            console.log( filterCards )
+        })
+})
+
+
+
+document.getElementById("input-search").addEventListener('input', (event) => {
+    if (event.target.value.trim() === "") {
+        LoadIssues(); 
+    }
+});
