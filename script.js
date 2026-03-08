@@ -65,7 +65,10 @@ const displayIssue = (issues) => {
             issue.status==='open'? 'border-[#00A96E]':'border-[#A855F7]'
         
 
-        const addElement = document.createElement('div')
+        const addElement=document.createElement('div')
+        
+        addElement.onclick=() => cardDetail(issue.id)
+        
         addElement.innerHTML = `
              <div class=" shadow-[0px_0px_15px_rgba(0,0,0,0.2)] py-[20px] px-[10px] space-y-3 h-[417px] rounded-xl      border-t-4 ${borderClass}">
              <div class=" flex justify-between items-center">
