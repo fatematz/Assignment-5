@@ -80,7 +80,7 @@ const displayIssue = (issues) => {
            <h2 class="text-[20px] font-bold">${issue.title}</h2>
            </div>
            <div class="">
-        <h3 class="text-[18px] text-[##64748B]" >${issue.description}</h3>
+        <h3 class="text-[18px] text-[#64748B]" >${issue.description}</h3>
         </div>
         <div class="flex gap-[20px] py-[20px]">
             <button class="w-[120px] h-[30px] rounded-full bg-red-200 text-red-700 border border-red-500 hover:bg-blue-500 hover:text-white hover:border-none">${issue.labels[0]}</button>
@@ -94,8 +94,8 @@ const displayIssue = (issues) => {
 
 
         <div class="">
-            <p class="text-[20px]">${issue.author}</p>
-            <p class="text-[20px]">${issue.createdAt}</p>
+            <p class="text-[18px] text-[#64748B]">${issue.author}</p>
+            <p class="text-[18px] text-[#64748B]">${issue.createdAt}</p>
         </div>
          </div>
         
